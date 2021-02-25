@@ -38,6 +38,7 @@ public class solutionQueue {
 class MonotonicQueue {
     LinkedList<Integer> q = new LinkedList<>();
 
+
     public void push(int n) {
         //将小于n的元素全部删除
         while (!q.isEmpty() && q.getLast() < n) {
@@ -45,6 +46,7 @@ class MonotonicQueue {
         }
         //然后将n加入尾部
         q.addLast(n);
+
     }
 
     public int max() {

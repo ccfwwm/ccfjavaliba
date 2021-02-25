@@ -22,4 +22,7 @@ public class TreeNode {
     public TreeNode getRight() {
         return right;
     }
+
+    public static class soulutionMaxIn {
+    }
 }

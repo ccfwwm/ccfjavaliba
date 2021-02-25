@@ -1,7 +1,5 @@
 package com.company;
 
-import javax.swing.*;
-
 public class solutionUF {
 
     //Union-Find算法
@@ -96,4 +94,40 @@ public class solutionUF {
     }
 
 
+    public static class doubleList {
+
+        //环形链表判断环起点
+        public ListNode detectCycle(ListNode head){
+            ListNode fast,slow;
+            fast = slow = head;
+            while (fast != null && fast.next != null){
+                fast = fast.next.next;
+                slow = slow.next;
+                if(fast == slow)
+                    break;
+            }
+            //任一指针复原，重新跑一遍
+            slow = head;
+            while (slow != fast){
+                fast = fast.next;
+                slow = slow.next;
+            }
+            return slow;
+        }
+
+       // 寻找链表中点
+        public ListNode findMiddle(ListNode head){
+            ListNode fast,slow;
+            fast = slow = head;
+            while (fast!=null && fast.next != null){
+                fast = fast.next.next;
+                slow = slow.next;
+            }
+            //如果长度偶数，则slow偏右
+            return  slow;
+        }
+
+
+
+    }
 }
