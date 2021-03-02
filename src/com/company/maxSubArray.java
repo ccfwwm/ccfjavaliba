@@ -1,8 +1,6 @@
 package com.company;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 
 public class maxSubArray {
@@ -77,6 +75,79 @@ public class maxSubArray {
 
     }
 
+    public boolean canPartintion(int[] nums) {
+        int sum = 0, n = nums.length;
+        for (int num : nums)
+            sum += num;
+        if (sum % 2 != 0)
+            return false;
+        sum = sum / 2;
+        boolean[] dp = new boolean[sum + 1];
+        Arrays.fill(dp, false);
+        dp[0] = true;
+        for (int i = 0; i < n; i++) {
+            for (int j = sum; j >= 0; j--) {
+                dp[j] = dp[j] || dp[j - nums[i]];
+            }
+        }
+        return dp[sum];
+    }
+
+    //最大不相交区间
+    public int intervalSchedule(int[][] intvs) {
+        if (intvs.length == 0)
+            return 0;
+        Arrays.sort(intvs, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return o1[1] - o2[1];
+            }
+        });
+        //至少有一个区间不相交
+        int count = 1;
+
+        //排序后，第一个区间就是x
+        int x_end = intvs[0][1];
+
+        for (int[] interval : intvs) {
+            int start = interval[0];
+            if (start >= x_end) {
+                //找到下一个区间
+                count++;
+                x_end = interval[1];
+            }
+        }
+        return count;
+    }
+
+    public boolean isPossible(int[] nums) {
+        int len = nums.length;
+        if(len<3){
+            return false;
+        }
+        Stack multi = new Stack();
+        int count = 0;
+        int slow = 0,fast = 1;
+        while (fast<len){
+
+        }
+
+
+
+        return true;
+    }
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
