@@ -42,6 +42,9 @@
 // 👍 577 👎 0
 
 package leetcode.editor.cn;
+
+import com.company.TreeNode;
+
 public class SameTree100{
     public static void main(String[] args) {
         Solution solution = new SameTree100().new Solution();
@@ -64,6 +67,23 @@ public class SameTree100{
  */
 class Solution {
     public boolean isSameTree(TreeNode p, TreeNode q) {
+        if(p == null && q== null) {
+            return true;
+        }
+        if(p == null || q == null){
+            return false;
+        }
+        if(p.val != q.val){
+            return false;
+        }
+        if( !isSameTree(p.left,q.left)){
+            return false;
+        }
+        if(!isSameTree(p.right,q.right)){
+            return false;
+        }
+        return true;
+
 
     }
 }
