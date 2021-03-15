@@ -1,0 +1,52 @@
+
+    /**
+     * Definition for a binary tree node.
+     * public class TreeNode {
+     * int val;
+     * TreeNode left;
+     * TreeNode right;
+     * TreeNode() {}
+     * TreeNode(int val) { this.val = val; }
+     * TreeNode(int val, TreeNode left, TreeNode right) {
+     * this.val = val;
+     * this.left = left;
+     * this.right = right;
+     * }
+     * }
+     */
+    class Solution {
+        public int largestBSTSubtree(TreeNode root) {
+            if(root ==null){
+                return 0;
+            }
+            if(isBST(root)[0]==1){
+                return isBST(root)[1];
+            }
+            int leftCount = largestBSTSubtree(root.left);
+            int rightCount = largestBSTSubtree(root.right);
+            return Math.max(leftCount,rightCount);
+        }
+        private int[] isBST(TreeNode root){
+            return isBST(root,Integer.MIN_VALUE,Integer.MAX_VALUE);
+        }
+        private int[] isBST(TreeNode root,int min,int max){
+            if(root ==null) {
+                return new int[]{1,0};
+            }
+            int[] leftBST = isBST(root.left,min,root.val);
+            int[] rightBST = isBST(root.right,root.val,max);
+            if(min<root.val && root.val<max&&(leftBST[0] ==1)&&(rightBST[0]==1)){
+               return new int[]{1,leftBST[1]+rightBST[1]+1};
+            }
+            return new int[]{0,0};
+        }
+//        private int getCount(TreeNode root){
+//           if(root ==null){
+//               return 0;
+//           }
+//           return getCount(root.left)+getCount(root.right)+1;
+//        }
+    }
+
+//runtime:1 ms
+//memory:38.4 MB

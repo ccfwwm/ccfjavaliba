@@ -1,0 +1,47 @@
+
+    /**
+     * Definition for a binary tree node.
+     * public class TreeNode {
+     * int val;
+     * TreeNode left;
+     * TreeNode right;
+     * TreeNode() {}
+     * TreeNode(int val) { this.val = val; }
+     * TreeNode(int val, TreeNode left, TreeNode right) {
+     * this.val = val;
+     * this.left = left;
+     * this.right = right;
+     * }
+     * }
+     */
+    class Solution {
+        public int largestBSTSubtree(TreeNode root) {
+            if(root ==null){
+                return 0;
+            }
+            if(isBST(root)){
+                return getCount(root);
+            }
+            int leftCount = largestBSTSubtree(root.left);
+            int rightCount = largestBSTSubtree(root.right);
+            return Math.max(leftCount,rightCount);
+        }
+        private boolean isBST(TreeNode root){
+            return isBST(root,Integer.MIN_VALUE,Integer.MAX_VALUE);
+        }
+        private boolean isBST(TreeNode root,int min,int max){
+            if(root ==null) {
+                return true;
+            }
+            return min<root.val && root.val<max&&isBST(root.left,min,root.val)&&isBST(root.right,root.val,max);
+        }
+        private int getCount(TreeNode root){
+           if(root ==null){
+               return 0;
+           }
+           return getCount(root.left)+getCount(root.right)+1;
+        }
+    }
+
+//runtime:0 ms
+//memory:38.4 MB
