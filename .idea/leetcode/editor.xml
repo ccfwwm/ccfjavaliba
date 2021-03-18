@@ -195,6 +195,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/leetcode/editor/cn/ConvertBinarySearchTreeToSortedDoublyLinkedList426.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/src/leetcode/editor/cn/ConvertBinarySearchTreeToSortedDoublyLinkedList426.java" />
+              <option name="questionId" value="758" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/leetcode/editor/cn/ConvertSortedArrayToBinarySearchTree108.java">
           <value>
             <LeetcodeEditor>
@@ -219,11 +227,35 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/leetcode/editor/cn/EncodeNAryTreeToBinaryTree431.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/src/leetcode/editor/cn/EncodeNAryTreeToBinaryTree431.java" />
+              <option name="questionId" value="771" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/leetcode/editor/cn/FindLeavesOfBinaryTree366.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/src/leetcode/editor/cn/FindLeavesOfBinaryTree366.java" />
+              <option name="questionId" value="366" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/leetcode/editor/cn/FlattenBinaryTreeToLinkedList114.java">
           <value>
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/src/leetcode/editor/cn/FlattenBinaryTreeToLinkedList114.java" />
               <option name="questionId" value="114" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/leetcode/editor/cn/HouseRobberIii337.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/src/leetcode/editor/cn/HouseRobberIii337.java" />
+              <option name="questionId" value="337" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -291,6 +323,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/leetcode/editor/cn/NAryTreeLevelOrderTraversal429.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/src/leetcode/editor/cn/NAryTreeLevelOrderTraversal429.java" />
+              <option name="questionId" value="764" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/leetcode/editor/cn/P16ThreeSumClosest.java">
           <value>
             <LeetcodeEditor>
@@ -331,6 +371,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/leetcode/editor/cn/PathSumIii437.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/src/leetcode/editor/cn/PathSumIii437.java" />
+              <option name="questionId" value="437" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/leetcode/editor/cn/PopulatingNextRightPointersInEachNode116.java">
           <value>
             <LeetcodeEditor>
@@ -368,6 +416,22 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/src/leetcode/editor/cn/SerializeAndDeserializeBinaryTree297.java" />
               <option name="questionId" value="297" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/leetcode/editor/cn/SerializeAndDeserializeNAryTree428.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/src/leetcode/editor/cn/SerializeAndDeserializeNAryTree428.java" />
+              <option name="questionId" value="765" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/leetcode/editor/cn/SumOfLeftLeaves404.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/src/leetcode/editor/cn/SumOfLeftLeaves404.java" />
+              <option name="questionId" value="404" />
             </LeetcodeEditor>
           </value>
         </entry>
