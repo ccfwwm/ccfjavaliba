@@ -2,6 +2,8 @@ package leetcode.editor.cn;
 
 import com.company.TreeNode;
 
+import java.util.HashMap;
+
 public class PathSumIii437{
     public static void main(String[] args) {
      Solution solution = new PathSumIii437().new Solution();
@@ -57,10 +59,42 @@ public class PathSumIii437{
  * }
  */
 class Solution {
+    HashMap<Integer,Integer> prefixMap;
+    int target;
     public int pathSum(TreeNode root, int sum) {
-        
+       target = sum;
+       prefixMap = new HashMap<>();
+       prefixMap.put(0,1);
+        return helper(root,0);
+    }
+
+    private int helper(TreeNode root,int curSum){
+        if(root ==null){
+            return 0;
+        }
+        curSum+=root.val;
+        //curSum-target 顺序不能变，掉头就不行,因为curSum是当前和，target是目标，定义是当前节点减去target的节点数
+        int res = prefixMap.getOrDefault(curSum-target,0);
+        prefixMap.put(curSum,prefixMap.getOrDefault(curSum,0)+1);
+        int left =helper(root.left,curSum);
+        int right = helper(root.right,curSum);
+        res = res+left+right;
+        prefixMap.put(curSum, prefixMap.get(curSum)-1);
+        return res;
+
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
+
+
+
+
+
+
+
+
+
+
+
