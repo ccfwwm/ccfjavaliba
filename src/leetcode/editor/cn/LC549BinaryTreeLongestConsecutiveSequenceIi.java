@@ -1,4 +1,7 @@
 package leetcode.editor.cn;
+
+import com.company.TreeNode;
+
 public class LC549BinaryTreeLongestConsecutiveSequenceIi {
     public static void main(String[] args) {
      Solution solution = new LC549BinaryTreeLongestConsecutiveSequenceIi().new Solution();
@@ -6,7 +9,7 @@ public class LC549BinaryTreeLongestConsecutiveSequenceIi {
 /**
   * 题目Id：549
   * 题目：二叉树中最长的连续序列
-  * 日期：2021-03-21 21:25:04
+  * 日期：2021-03-22 15:54:20
 */
 //给定一个二叉树，你需要找出二叉树中最长的连续序列路径的长度。 
 //
@@ -58,10 +61,37 @@ public class LC549BinaryTreeLongestConsecutiveSequenceIi {
  * }
  */
 class Solution {
-    public int longestConsecutive(TreeNode root) {
 
+    private int max;
+
+    public int longestConsecutive(TreeNode root) {
+        max = 0;
+        dfs(root, 0);
+        return max;
+    }
+
+    //返回值表示的是父亲节点的最长递增序列和最长递减序列
+    private int[] dfs(TreeNode node, int pre){
+        if(node == null){
+            return new int[]{1, 1};
+        }
+        int[] left = dfs(node.left, node.val);
+        int[] right = dfs(node.right, node.val);
+        max = Math.max(left[0] + right[1] - 1, max);
+        max = Math.max(left[1] + right[0] - 1, max);
+        int incre = 1, decre = 1;
+        if(node.val + 1 == pre){
+            //更新递增序列长度
+            incre = Math.max(left[0], right[0]) + 1;
+        }
+        if(node.val - 1 == pre){
+            //更新递减序列长度
+            decre = Math.max(left[1], right[1]) + 1;
+        }
+        return new int[]{incre, decre};
     }
 }
+
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
