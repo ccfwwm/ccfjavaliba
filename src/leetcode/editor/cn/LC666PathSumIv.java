@@ -1,13 +1,17 @@
 package leetcode.editor.cn;
+
+import java.util.HashMap;
+
 public class LC666PathSumIv {
     public static void main(String[] args) {
-     Solution solution = new LC666PathSumIv().new Solution();
+        Solution solution = new LC666PathSumIv().new Solution();
     }
-/**
-  * 题目Id：666
-  * 题目：路径总和 IV
-  * 日期：2021-03-26 18:29:28
-*/
+
+    /**
+     * 题目Id：666
+     * 题目：路径总和 IV
+     * 日期：2021-03-26 18:29:28
+     */
 //对于一棵深度小于 5 的树，可以用一组三位十进制整数来表示。 
 //
 // 对于每个整数： 
@@ -55,11 +59,41 @@ public class LC666PathSumIv {
 // 👍 26 👎 0
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public int pathSum(int[] nums) {
+    class Solution {
+        int allSum = 0;
+        HashMap<Integer, Integer> map;
 
+        public int pathSum(int[] nums) {
+            if (nums.length < 1) {
+                return 0;
+            }
+            map = new HashMap<>();
+            for (int num :
+                    nums) {
+                map.put(num / 10, num % 10);
+            }
+            dfs(nums[0] / 10, 0);
+            return allSum;
+        }
+
+        private void dfs(int nodePos, int sum) {
+            if (!map.containsKey(nodePos)) {
+                return;
+            }
+            sum += map.get(nodePos);
+            int depth = nodePos / 10;
+            int pos = nodePos % 10;
+            int left = (depth + 1) * 10 + pos * 2 - 1;
+            int right = left + 1;
+            if (!map.containsKey(left) && !map.containsKey(right)) {
+                allSum += sum;
+            } else {
+                dfs(left, sum);
+                dfs(right, sum);
+            }
+
+        }
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
