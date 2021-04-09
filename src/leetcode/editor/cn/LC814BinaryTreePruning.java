@@ -78,16 +78,10 @@ public class LC814BinaryTreePruning {
             if (root == null) {
                 return null;
             }
-            TreeNode left = pruneTree(root.left);
-            TreeNode right = pruneTree(root.right);
-            if (left == null && right == null && root.val == 0) {
+            root.left = pruneTree(root.left);
+            root.right = pruneTree(root.right);
+            if (root.left == null && root.right == null && root.val == 0) {
                 return null;
-            }
-            if (left == null) {
-                root.left = null;
-            }
-            if (right == null) {
-                root.right = null;
             }
             return root;
         }
