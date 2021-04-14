@@ -1,13 +1,15 @@
 package leetcode.editor.cn;
+
 public class LC123BestTimeToBuyAndSellStockIii {
     public static void main(String[] args) {
-     Solution solution = new LC123BestTimeToBuyAndSellStockIii().new Solution();
+        Solution solution = new LC123BestTimeToBuyAndSellStockIii().new Solution();
     }
-/**
-  * 题目Id：123
-  * 题目：买卖股票的最佳时机 III
-  * 日期：2021-04-09 21:35:45
-*/
+
+    /**
+     * 题目Id：123
+     * 题目：买卖股票的最佳时机 III
+     * 日期：2021-04-09 21:35:45
+     */
 //给定一个数组，它的第 i 个元素是一支给定的股票在第 i 天的价格。 
 //
 // 设计一个算法来计算你所能获取的最大利润。你最多可以完成 两笔 交易。 
@@ -60,34 +62,29 @@ public class LC123BestTimeToBuyAndSellStockIii {
 // 👍 740 👎 0
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public int maxProfit(int[] prices) {
-        int len = prices.length-1;
-        int twoMax =0;
-        for (int i = 0; i <=len; i++) {
-           int left = MaxSum(prices,0,i);
-           int right = MaxSum(prices,i+1,len);
-           twoMax = Math.max(twoMax,left+right);
-        }
-       return twoMax;
-    }
-
-    private int MaxSum(int[] prices,int start,int end){
-        if(start>end){
-            return 0;
-        }
-        int max = 0;
-        int min = prices[start];
-        for (int i = start+1; i <=end; i++) {
-            if(min>prices[i]) {
-                min =prices[i];
-            }else {
-                max = Math.max(max, prices[i] - min);
+    class Solution {
+        public int maxProfit(int[] prices) {
+            if (prices == null && prices.length < 2) {
+                return 0;
             }
+            int n = prices.length;
+//            int[] dp = new int[5];
+            int sell0 = 0;
+            int buy1 = -prices[0];
+            int sell1 = 0;
+            int buy2 = -prices[0];
+            int sell2 = 0;
+            for (int i = 1; i < n; i++) {
+                //顺序正反都行，因为正虽然覆盖,卖出股份必须是在买的后面
+                buy1 = Math.max(buy1, sell0 - prices[i]);
+                sell1 = Math.max(sell1, buy1 + prices[i]);
+                buy2 = Math.max(buy2, sell1 - prices[i]);
+                sell2 = Math.max(sell2, buy2 + prices[i]);
+            }
+            return sell2;
         }
-        return max;
+
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
