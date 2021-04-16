@@ -1,0 +1,73 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+    /**
+     * Definition for a binary tree node.
+     * public class TreeNode {
+     * int val;
+     * TreeNode left;
+     * TreeNode right;
+     * TreeNode() {}
+     * TreeNode(int val) { this.val = val; }
+     * TreeNode(int val, TreeNode left, TreeNode right) {
+     * this.val = val;
+     * this.left = left;
+     * this.right = right;
+     * }
+     * }
+     */
+    class Solution {
+
+        public List<TreeNode> generateTrees(int n) {
+            return generateTrees(1, n);
+        }
+
+        public List<TreeNode> generateTrees(int start, int end) {
+            //每次递归都需要新建
+            List<TreeNode> allValidaTrees = new LinkedList<>();
+            //空节点需要返回
+            if (start > end) {
+                allValidaTrees.add(null);
+                return allValidaTrees;
+
+            }
+            //循环分治法，左右遍历，由于是寻找二叉搜索数，节点left<root<right。数的左边为left
+            //数的右边为right
+            for (int i = start; i <= end; i++) {
+                List<TreeNode> allValidaLeft = generateTrees(start, i - 1);
+                List<TreeNode> allValidaRight = generateTrees(i + 1, end);
+                //最外面一层，遍历最多。不断左右子数组合，变成更上一层树的节点。
+                //left 为null，也会进入null遍历
+                for (TreeNode left : allValidaLeft) {
+                    for (TreeNode right : allValidaRight) {
+                        //此步骤可以简化成一步
+//                    TreeNode cur = new TreeNode(i);
+//                    cur.left = left;
+//                    cur.right = right;
+//                    allValidaTrees.add(cur);
+
+                        //构建新树并添加
+                        allValidaTrees.add(new TreeNode(i, left, right));
+                    }
+
+                }
+            }
+            return allValidaTrees;
+        }
+    }
+
+
+//runtime:1 ms
+//memory:39 MB
