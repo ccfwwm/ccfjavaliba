@@ -1,4 +1,7 @@
 package leetcode.editor.cn;
+
+import com.company.TreeNode;
+
 public class LC951FlipEquivalentBinaryTrees {
     public static void main(String[] args) {
      Solution solution = new LC951FlipEquivalentBinaryTrees().new Solution();
